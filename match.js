@@ -1,5 +1,21 @@
 'use strict';
 
+// Examples
+//
+// match (123,
+//   42, () => 'aaa',
+//   123, () => 'bbb',
+//   444, () => 'ccc'
+// )
+//
+// match(['+', 5, 7],
+//   ['+', _, _], (x,y) => x + y,
+// )
+//
+// match(new Point3D(1, 2, 3),
+//   instof(Point3D, _, 2, _), (x,z) => x + z
+// )
+
 function match(value /* pat1, fun1, pat2, fun2, ... */) {
   var patFun = Array.prototype.slice.call(arguments, 1);
   for (var i=0; i+1<patFun.length; i+=2) {
